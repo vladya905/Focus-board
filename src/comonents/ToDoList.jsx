@@ -9,7 +9,7 @@ const ToDoList = ({todos, onDeleteTodo, onToggleComplete}) => {
                         checked={completed}
                         onChange={()=>onToggleComplete(id)}
                     />
-                    <p className={`flex-1 ${completed ? 'line-through' : ''}`}>{text}</p>
+                    <p className={`flex-1 italic ${completed ? 'line-through' : ''}`}>{text}</p>
                 <button className='btn-base' type="button" onClick={()=> onDeleteTodo(id)}>Удалить</button>
             </li>))}
         </ul>
