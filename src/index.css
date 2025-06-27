@@ -1,0 +1,14 @@
+@layer theme, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+.btn-base {
+    @apply min-w-5 h-10 bg-blue-700 rounded-lg text-white font-semibold border-2
+    border-white/70 hover:bg-amber-400 transition-colors duration-300 shadow;
+}
+.textarea{
+    @apply  h-32 border-2 border-gray-500 rounded ;
+}
+.input{
+    @apply ml-2;
+}
