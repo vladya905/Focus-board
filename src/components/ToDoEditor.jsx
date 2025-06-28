@@ -13,13 +13,15 @@ class ToDoEditor extends Component {
     }
 
     handleSubmit = (e) => {
+        const {onAddTodo, onToggle} = this.props
         e.preventDefault();
         if(this.state.message === ''){
             alert('Введи че нить')
             return
         }
-        this.props.onAddTodo(this.state.message);
+       onAddTodo(this.state.message);
         this.setState({message: ''});
+        onToggle()
 
 
     }
@@ -34,7 +36,7 @@ class ToDoEditor extends Component {
                     placeholder='пиши сюдой...'>
 
                 </textarea>
-                <button className='btn-base w-full' type='submit'>Добавить</button>
+                <button className='btn-base w-full !rounded-md' type='submit'>Добавить</button>
             </form>
         );
     }

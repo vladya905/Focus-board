@@ -3,7 +3,7 @@
 @import "tailwindcss/utilities.css" layer(utilities);
 
 .btn-base {
-    @apply min-w-5 h-10 bg-blue-700 rounded-lg text-white font-semibold border-2
+    @apply min-w-5 h-10 bg-blue-700 rounded-full text-white font-semibold border-none cursor-pointer
     border-white/70 hover:bg-amber-400 transition-colors duration-300 shadow;
 }
 .textarea{
