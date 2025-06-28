@@ -1,16 +1,43 @@
 import {Component} from "react";
-import ToDoList from "./comonents/ToDoList.jsx";
-import todos from "./comonents/todos.json";
-import ToDoEditor from "./comonents/ToDoEditor.jsx";
-import Filter from "./comonents/Filter.jsx";
-// import Form from "./comonents/Form.jsx";
+import ToDoList from "./components/ToDoList.jsx";
+import todos from "./components/todos.json";
+import ToDoEditor from "./components/ToDoEditor.jsx";
+import Filter from "./components/Filter.jsx";
+// import Form from "./components/Form.jsx";
+import Modal from "./components/Modal.jsx"
 
 
 class App extends Component {
 
     state ={
-        todos,
+        todos: [],
         filter: '',
+        showModal: false,
+    }
+
+    componentDidMount() {
+        const todos = localStorage.getItem('todos')
+        console.log(todos)
+        const parsedTodo = JSON.parse(todos)
+        console.log(parsedTodo)
+
+        if(parsedTodo){
+            this.setState({
+                todos:parsedTodo
+            })
+        }
+
+
+
+
+
+
+    }
+
+    componentDidUpdate(prevProps, prevState){
+        if(this.state.todos !== prevState.todos){
+            localStorage.setItem('todos', JSON.stringify(this.state.todos))
+        }
     }
 
     addTodo = (message) => {
@@ -53,8 +80,11 @@ class App extends Component {
         this.state.todos.reduce((acc, todo)=>(todo.completed ? acc+1 : acc),0)
     )
 
-
-
+    toggleModal = () => {
+        this.setState(state => ({
+            showModal: !state.showModal
+        }))
+   }
 
     // submitForm = (data) => {
     //     console.log(data)
@@ -63,7 +93,7 @@ class App extends Component {
 
     render() {
 
-        const {todos, filter} = this.state;
+        const {todos, filter, showModal} = this.state;
 
         const todoCompleted = this.getTodoComplete();
         const filteredTodos = this.getVisibleTodos();
@@ -88,6 +118,15 @@ class App extends Component {
                </div>
 
                {/*<Form onSubmit={this.submitForm} />*/}
+               {showModal && <Modal onClose = {this.toggleModal}>
+
+                   <h1>Хуй</h1>
+                   <button onClick={() =>{this.toggleModal()}}>закройся</button>
+
+               </Modal>}
+               <button onClick={() =>{this.toggleModal()}}>откройся</button>
+
+
 
            </>
 
