@@ -4,7 +4,7 @@ const ToDoList = ({todos, onDeleteTodo, onToggleComplete}) => {
     return(
         <ul className='pl-0 list-none'>
             {todos.map(({id, text, completed})=>(
-                <li key={id}>
+                <li key={id} className='hover:bg-green-400 transition-colors duration-300 shadow '>
                     <Todo
                         text={text}
                         completed={completed}
