@@ -1,8 +1,9 @@
 {
-  "name": "react-no-ts",
-  "private": true,
+  "name": "focus-board",
+  "private": false,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://vladya905.github.io/Focus-board",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
