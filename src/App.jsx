@@ -85,10 +85,10 @@ class App extends Component {
         }))
    }
 
-    // submitForm = (data) => {
-    //     console.log(data)
+    // submitForm = (...args) => {
+    //     console.log(...args)
     //
-    // } ------------форму тестил
+    // }
 
     render() {
 
